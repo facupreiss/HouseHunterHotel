@@ -1,15 +1,15 @@
 import sqlite3
 
-
 class Conexion:
-  
+
   def __init__(self, nombreBaseDatos):
     self.conexion = sqlite3.connect(nombreBaseDatos)
     self.cursor = self.conexion.cursor()
-    
+
 #CREO LAS TABLAS DE LA BD
+
   def crearTabla(self):
-    
+
     self.cursor.execute('''CREATE TABLE IF NOT EXISTS empleado(
     id_empleado INTEGER PRIMARY KEY AUTOINCREMENT,
     dni INTEGER,
@@ -84,12 +84,21 @@ class Conexion:
     id_cliente FOREIGN KEY REFERENCES habitacion(id_habitacion),
     id_reserva FOREIGN KEY REFERENCES reserva(id_reserva)
     )''')
-    
+
     self.conexion.commit()
 
-# INSERTAR DATOS EN LAS TABLAS
+  def agregarEmpleado(self):
+    dni = input("Ingrese el DNI del empleado: ")
+    nombre = input("Ingrese el nombre del empleado: ")
+    apellido = input("Ingrese el apellido del empleado: ")
+    telefono = input("Ingrese el telefono del empleado: ")
+    email = input("Ingrese el email del empleado: ")
+    empleado = Empleado(dni,nombre,apellido,telefono,email)
+    self.cursor.execute('''INSERT INTO empleado(dni,nombre,apellido,telefono,email) VALUES(?,?,?,?,?))''''',(dni,nombre,apellido)
+
+
 #CIERRO LA CONEXION DE LA BD
+
   def cerrarConexion(self):
     self.cursor.close()
     self.conexion.close()
-    
