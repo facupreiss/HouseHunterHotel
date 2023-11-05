@@ -102,3 +102,4 @@ class Conexion:
   def cerrarConexion(self):
     self.cursor.close()
     self.conexion.close()
+
