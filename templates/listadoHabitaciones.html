@@ -9,199 +9,24 @@
 <body>
   <h1 class="textCenter">Lista habitaciones</h1>
   <div class="container">
+    {% for habitacion in habitaciones %}
     <div class="cardContainer">
       <div class="cardImgContainer">
-        <img src="static/image/hotel.jpg" alt="">
+        <img src="{{ url_for('static', filename='images/' + habitacion.imagen) }}" alt="">
       </div>
       <div class="cardInfoContainer">
         <div class="cardTextContainer">
-          <p><span class="txtBold">Número habitación:</span> 324</p>
-          <p><span class="txtBold">Tipo habitación:</span> Suite</p>
-          <p><span class="txtBold">Capacidad: </span>4 personas</p>
-          <p><span class="txtBold">Precio:</span> $1000</p>
+          <p><span class="txtBold">Número habitación:</span> {{ habitacion.numero}}</p>
+          <p><span class="txtBold">Tipo habitación:</span> {{ habitacion.tipo_habitacion.nombre }}</p>
+          <p><span class="txtBold">Capacidad:</span> {{ habitacion.capacidad}} personas</p>
+          <p><span class="txtBold">Precio:</span> ${{ habitacion.precio }}</p>
         </div>
-        <div class="estado ocupado">
-          <span>Ocupado</span>
-        </div>
-      </div>
-    </div>
-    <div class="cardContainer">
-      <div class="cardImgContainer">
-        <img src="{{url_for('static', filename='images/hotel.jpg')}}" alt="">
-
-      </div>
-      <div class="cardInfoContainer">
-        <div class="cardTextContainer">
-          <p><span class="txtBold">Número habitación:</span> 324</p>
-          <p><span class="txtBold">Tipo habitación:</span> Suite</p>
-          <p><span class="txtBold">Capacidad: </span>4 personas</p>
-          <p><span class="txtBold">Precio:</span> $1000</p>
-        </div>
-        <div class="estado noDisponible">
-          <span>No disponible</span>
+        <div class="estado {{ habitacion.estado.descripcion|lower }}">
+          <span>{{ habitacion.estado.descripcion }}</span>
         </div>
       </div>
     </div>
-    <div class="cardContainer">
-      <div class="cardImgContainer">
-        <img src="static/image/hotel.jpg" alt="">
-      </div>
-      <div class="cardInfoContainer">
-        <div class="cardTextContainer">
-          <p><span class="txtBold">Número habitación:</span> 324</p>
-          <p><span class="txtBold">Tipo habitación:</span> Suite</p>
-          <p><span class="txtBold">Capacidad: </span>4 personas</p>
-          <p><span class="txtBold">Precio:</span> $1000</p>
-        </div>
-        <div class="estado disponible">
-          <span>Disponible</span>
-        </div>
-      </div>
-    </div>
-    <div class="cardContainer">
-      <div class="cardImgContainer">
-        <img src="static/image/hotel.jpg" alt="">
-      </div>
-      <div class="cardInfoContainer">
-        <div class="cardTextContainer">
-          <p><span class="txtBold">Número habitación:</span> 324</p>
-          <p><span class="txtBold">Tipo habitación:</span> Suite</p>
-          <p><span class="txtBold">Capacidad: </span>4 personas</p>
-          <p><span class="txtBold">Precio:</span> $1000</p>
-        </div>
-        <div class="estado disponible">
-          <span>Disponible</span>
-        </div>
-      </div>
-    </div>
-    <div class="cardContainer">
-      <div class="cardImgContainer">
-        <img src="static/image/hotel.jpg" alt="">
-      </div>
-      <div class="cardInfoContainer">
-        <div class="cardTextContainer">
-          <p><span class="txtBold">Número habitación:</span> 324</p>
-          <p><span class="txtBold">Tipo habitación:</span> Suite</p>
-          <p><span class="txtBold">Capacidad: </span>4 personas</p>
-          <p><span class="txtBold">Precio:</span> $1000</p>
-        </div>
-        <div class="estado disponible">
-          <span>Disponible</span>
-        </div>
-      </div>
-    </div>
-    <div class="cardContainer">
-      <div class="cardImgContainer">
-        <img src="static/image/hotel.jpg" alt="">
-      </div>
-      <div class="cardInfoContainer">
-        <div class="cardTextContainer">
-          <p><span class="txtBold">Número habitación:</span> 324</p>
-          <p><span class="txtBold">Tipo habitación:</span> Suite</p>
-          <p><span class="txtBold">Capacidad: </span>4 personas</p>
-          <p><span class="txtBold">Precio:</span> $1000</p>
-        </div>
-        <div class="estado disponible">
-          <span>Disponible</span>
-        </div>
-      </div>
-    </div>
-    <div class="cardContainer">
-      <div class="cardImgContainer">
-        <img src="static/image/hotel.jpg" alt="">
-      </div>
-      <div class="cardInfoContainer">
-        <div class="cardTextContainer">
-          <p><span class="txtBold">Número habitación:</span> 324</p>
-          <p><span class="txtBold">Tipo habitación:</span> Suite</p>
-          <p><span class="txtBold">Capacidad: </span>4 personas</p>
-          <p><span class="txtBold">Precio:</span> $1000</p>
-        </div>
-        <div class="estado disponible">
-          <span>Disponible</span>
-        </div>
-      </div>
-    </div>
-    <div class="cardContainer">
-      <div class="cardImgContainer">
-        <img src="static/image/hotel.jpg" alt="">
-      </div>
-      <div class="cardInfoContainer">
-        <div class="cardTextContainer">
-          <p><span class="txtBold">Número habitación:</span> 324</p>
-          <p><span class="txtBold">Tipo habitación:</span> Suite</p>
-          <p><span class="txtBold">Capacidad: </span>4 personas</p>
-          <p><span class="txtBold">Precio:</span> $1000</p>
-        </div>
-        <div class="estado disponible">
-          <span>Disponible</span>
-        </div>
-      </div>
-    </div>
-    <div class="cardContainer">
-      <div class="cardImgContainer">
-        <img src="static/image/hotel.jpg" alt="">
-      </div>
-      <div class="cardInfoContainer">
-        <div class="cardTextContainer">
-          <p><span class="txtBold">Número habitación:</span> 324</p>
-          <p><span class="txtBold">Tipo habitación:</span> Suite</p>
-          <p><span class="txtBold">Capacidad: </span>4 personas</p>
-          <p><span class="txtBold">Precio:</span> $1000</p>
-        </div>
-        <div class="estado disponible">
-          <span>Disponible</span>
-        </div>
-      </div>
-    </div>
-    <div class="cardContainer">
-      <div class="cardImgContainer">
-        <img src="static/image/hotel.jpg" alt="">
-      </div>
-      <div class="cardInfoContainer">
-        <div class="cardTextContainer">
-          <p><span class="txtBold">Número habitación:</span> 324</p>
-          <p><span class="txtBold">Tipo habitación:</span> Suite</p>
-          <p><span class="txtBold">Capacidad: </span>4 personas</p>
-          <p><span class="txtBold">Precio:</span> $1000</p>
-        </div>
-        <div class="estado disponible">
-          <span>Disponible</span>
-        </div>
-      </div>
-    </div>
-    <div class="cardContainer">
-      <div class="cardImgContainer">
-        <img src="static/image/hotel.jpg" alt="">
-      </div>
-      <div class="cardInfoContainer">
-        <div class="cardTextContainer">
-          <p><span class="txtBold">Número habitación:</span> 324</p>
-          <p><span class="txtBold">Tipo habitación:</span> Suite</p>
-          <p><span class="txtBold">Capacidad: </span>4 personas</p>
-          <p><span class="txtBold">Precio:</span> $1000</p>
-        </div>
-        <div class="estado disponible">
-          <span>Disponible</span>
-        </div>
-      </div>
-    </div>
-    <div class="cardContainer">
-      <div class="cardImgContainer">
-        <img src="static/image/hotel.jpg" alt="">
-      </div>
-      <div class="cardInfoContainer">
-        <div class="cardTextContainer">
-          <p><span class="txtBold">Número habitación:</span> 324</p>
-          <p><span class="txtBold">Tipo habitación:</span> Suite</p>
-          <p><span class="txtBold">Capacidad: </span>4 personas</p>
-          <p><span class="txtBold">Precio:</span> $1000</p>
-        </div>
-        <div class="estado disponible">
-          <span>Disponible</span>
-        </div>
-      </div>
-    </div>
+    {% endfor %}
   </div>
  
   

@@ -1,6 +1,6 @@
 class TipoHabitacion:
 
-  def __init__(self, id, nombre):
+  def __init__(self, nombre, id=None):
     self._id = id
     self._nombre = nombre
 
